@@ -3,3 +3,14 @@ Four Major Pillar's of OOP's
 2. Abstraction
 3. Inheritance
 4. Polymorphism
+
+
+TimeStamps
+0:20 Stacks
+19:24 Queue
+26:03 Binary Search Tree
+53:20 Hash Table
+1:03:05 Linked List
+1:15:00 Trie 
+1:27:29 Heap
+1:42:08 Graph

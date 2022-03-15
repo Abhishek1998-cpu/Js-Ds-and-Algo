@@ -16,6 +16,7 @@ function mySet() {
 
   //   this method will add an element to the set
   this.add = function (element) {
+    // Checking that the element is already present in the Array (Collection) or not
     if (!this.has(element)) {
       collection.push(element);
       return true;
@@ -89,3 +90,19 @@ function mySet() {
 }
 
 // 18
+
+var X = new mySet();
+X.add(25);
+X.add(35);
+X.add(45);
+X.add(55);
+X.add(65);
+var Y = new mySet();
+Y.add(1);
+Y.add(2);
+Y.add(3);
+Y.add(4);
+Y.add(5);
+// console.log(X.values());
+console.log(X.union(Y).values());
+console.log(X.values());
