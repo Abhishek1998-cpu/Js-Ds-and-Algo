@@ -104,5 +104,7 @@ Y.add(3);
 Y.add(4);
 Y.add(5);
 // console.log(X.values());
-console.log(X.union(Y).values());
+// console.log(X.union(Y).values());
 console.log(X.values());
+console.log(Y.values());
+console.log(X.subset(Y.values()));
