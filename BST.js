@@ -15,6 +15,8 @@
 
 // If the tree is balanced then the difference between the minHeight and maxHeight of the tree will differ by atmost 1, for example minHeight = 2 and maxHeight = 3
 
+// The Implementation involves Recursion
+
 // When the tree is balanced then Searching through it becomes more efficient
 
 class Node {
@@ -36,6 +38,7 @@ class BST {
       this.root = new Node(data);
       return;
     } else {
+      // searchTree is a recursive function
       const searchTree = function (node) {
         if (data < node.data) {
           if (node.left === null) {
@@ -105,8 +108,15 @@ class BST {
     return false;
   }
 
+  getTree() {
+    return JSON.stringify(this.root, null, 2);
+  }
+
   remove(data) {
+    console.log("New 1 = " + data);
+    console.log("New 1 = " + JSON.stringify(this.root));
     const removeNode = function (node, data) {
+      // If node == null then there is an empty tree
       if (node == null) {
         return null;
       }
@@ -123,7 +133,7 @@ class BST {
         if (node.right == null) {
           return node.left;
         }
-        // node has two children
+        // node has two children (Only Complex Case in Removing a Node)
         var tempNode = node.right;
         while (tempNode.left !== null) {
           tempNode = tempNode.left;
@@ -239,17 +249,23 @@ class BST {
 }
 
 const bst = new BST();
-bst.add(4);
-bst.add(2);
-bst.add(6);
-bst.add(1);
-bst.add(3);
-bst.add(5);
-bst.add(7);
+// bst.add(1);
+// bst.add(2);
+// bst.add(3);
+// bst.add(4);
+// bst.add(5);
+// bst.add(6);
+// console.log(bst.getTree());
 // bst.remove(4);
 // console.log(bst.findMin());
 // console.log(bst.findMax());
 // console.log(bst.isPresent(10));
-console.log(bst.find(5));
+// console.log(bst.find(5));
+
+bst.add(100);
+bst.add(200);
+bst.add(90);
+bst.add(115);
+console.log(bst.getTree());
 
 // 35.55

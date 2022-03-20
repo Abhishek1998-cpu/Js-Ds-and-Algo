@@ -1,4 +1,4 @@
-// IIFE or IIFY - Immediately Invoked JavaScript Function
+// IIFE or IIFY - Immediately Invoked JavaScript Function - The function which get's executed as soon as it is defined
 (function () {
   console.log("Hello World");
 })();

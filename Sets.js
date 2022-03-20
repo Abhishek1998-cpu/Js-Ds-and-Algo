@@ -82,10 +82,19 @@ function mySet() {
 
   // this function will test that if the set is a subset of a different set
   this.subset = function (otherSet) {
-    var firstSet = this.values();
-    return firstSet.every(function (value) {
-      return otherSet.has(value);
-    });
+    // 1st Method
+    // var firstSet = this.values();
+    // return firstSet.every(function (value) {
+    //   return otherSet.has(value);
+    // });
+
+    // 2nd Method
+    var collectionLength = collection.length;
+    for (let i = 0; i < newSet.length; i++) {
+      this.add(newSet[i]);
+    }
+    var collectionLengthOfNewArray = collection.length;
+    return collectionLength === collectionLengthOfNewArray;
   };
 }
 

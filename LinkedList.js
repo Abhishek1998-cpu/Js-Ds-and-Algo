@@ -17,6 +17,10 @@ function LinkedList() {
     return head;
   };
 
+  this.getLinkedList = function () {
+    return JSON.stringify(head);
+  };
+
   this.add = function (element) {
     var node = new Node(element);
     if (head === null) {
@@ -124,6 +128,7 @@ X.add("Puppy");
 X.add("Dog");
 X.add("Cat");
 X.add("Fish");
-console.log(X.size());
-console.log(X.removeAt(3));
-console.log(X.size());
+console.log(X.getLinkedList());
+// console.log(X.size());
+// console.log(X.removeAt(3));
+// console.log(X.size());

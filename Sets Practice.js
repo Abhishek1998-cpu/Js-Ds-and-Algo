@@ -1,12 +1,13 @@
-// has
-// values
-// add
-// remove
-// size
-// union
-// intersection
-// difference
-// subset
+// Methods which we needs to Implement while creating a set Data Structure -
+// 1. has
+// 2. values
+// 3. add
+// 4. remove
+// 5. size
+// 6. union
+// 7. intersection
+// 8. difference
+// 9. subset
 
 function mySet() {
   var collection = [];
