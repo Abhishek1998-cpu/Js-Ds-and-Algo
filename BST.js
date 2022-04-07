@@ -188,8 +188,14 @@ class BST {
     } else {
       var result = new Array();
       function traverseInOrder(node) {
-        node.left && traverseInOrder(node.left);
+        // Old Method - Not Working
+        // node.left && traverseInOrder(node.left);
+        // result.push(node.data);
+        // New Method Working
+        if (node == null) return;
+        traverseInOrder(node.left);
         result.push(node.data);
+        traverseInOrder(node.right);
       }
       traverseInOrder(this.root);
       return result;
@@ -267,5 +273,6 @@ bst.add(200);
 bst.add(90);
 bst.add(115);
 console.log(bst.getTree());
+console.log(bst.inOrder());
 
 // 35.55

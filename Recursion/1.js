@@ -1,19 +1,24 @@
-// Finding factorial with the help of recursion 
+// Program Fibonacci Series upto Nth term 
 
-class factorial{
-    constructor(){
-        this.ans = 0
-    }
+// f(n) = f(n-1) + f(n-2)
 
-    findFactorial(num){
-        if(num<=1){
-            return 1
-        }else{
-            this.ans = num * this.findFactorial(num - 1)
-        }
-        return this.ans
+const printFib = (num) => {
+    var X = [0,1]
+    if(num == 0){
+        return 0
     }
+    if(num == 1){
+        return 1
+    }
+    var firstNumber = 0
+    var secondNumber = 1
+    return num
 }
 
-var X = new factorial()
-console.log(X.findFactorial(10))
+function fib(n) {
+    if (n <= 1)
+        return n;
+    return fib(n-1) + fib(n-2);
+}
+
+console.log(fib(10))
