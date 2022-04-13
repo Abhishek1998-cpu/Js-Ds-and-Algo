@@ -123,11 +123,15 @@ function LinkedList() {
 }
 
 var X = new LinkedList();
-X.add("Kitchen");
-X.add("Puppy");
-X.add("Dog");
-X.add("Cat");
-X.add("Fish");
+// X.add("Kitchen");
+// X.add("Puppy");
+// X.add("Dog");
+// X.add("Cat");
+// X.add("Fish");
+X.add(100);
+X.add(90);
+X.add(80);
+X.add(1123);
 console.log(X.getLinkedList());
 // console.log(X.size());
 // console.log(X.removeAt(3));

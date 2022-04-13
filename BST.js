@@ -15,6 +15,8 @@
 
 // If the tree is balanced then the difference between the minHeight and maxHeight of the tree will differ by atmost 1, for example minHeight = 2 and maxHeight = 3
 
+// If the tree is height balanced tree then the difference between the height of the subtree of every node differs by one
+
 // The Implementation involves Recursion
 
 // When the tree is balanced then Searching through it becomes more efficient

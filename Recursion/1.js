@@ -1,24 +1,40 @@
-// Program Fibonacci Series upto Nth term 
-
-// f(n) = f(n-1) + f(n-2)
-
-const printFib = (num) => {
-    var X = [0,1]
-    if(num == 0){
-        return 0
-    }
-    if(num == 1){
-        return 1
-    }
-    var firstNumber = 0
-    var secondNumber = 1
-    return num
+class Node {
+  constructor(element, next = null) {
+    this.element = element;
+    this.next = next;
+  }
 }
 
-function fib(n) {
-    if (n <= 1)
-        return n;
-    return fib(n-1) + fib(n-2);
+class LinkedList {
+  constructor() {
+    this.root = null;
+  }
+
+  getLinkedList() {
+    // return JSON.stringify(this.root, null, 2);
+    return JSON.stringify(this.root);
+  }
+
+  addNode(newNode) {
+    if (this.root == null) {
+      this.root = new Node(newNode);
+    } else {
+      const addNewNode = (rootNode) => {
+        if (rootNode.next == null) {
+          rootNode.next = new Node(newNode);
+          return;
+        } else {
+          return addNewNode(rootNode.next);
+        }
+      };
+      return addNewNode(this.root);
+    }
+  }
 }
 
-console.log(fib(10))
+var SampleNode = new LinkedList();
+SampleNode.addNode(100);
+SampleNode.addNode(90);
+SampleNode.addNode(80);
+SampleNode.addNode(1123);
+console.log(SampleNode.getLinkedList());

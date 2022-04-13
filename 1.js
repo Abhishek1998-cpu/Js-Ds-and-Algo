@@ -1,49 +1,18 @@
-// Linked List Implementation
+// Graph Data Structure
+// Graph = Node +  Edges
+// Depth First Traversal - Stack
+// Breadth First Traversal - Queue
+// 16.37
 
-class Node {
-  constructor(element) {
-    this.element = element;
-    this.next = this.next;
-  }
-}
+const depthFirstSearch = (graph, source) => {};
 
-class LinkedList {
-  constructor() {
-    this.length = 0;
-    this.head = null;
-  }
+const graph = {
+  a: ["c", "b"],
+  b: ["d"],
+  c: ["e"],
+  d: ["f"],
+  e: [],
+  f: [],
+};
 
-  //   Node(element) {
-  //     this.element = element;
-  //     this.next = null;
-  //   }
-
-  size() {
-    return this.length;
-  }
-
-  getLinkedList() {
-    return JSON.stringify(head);
-  }
-
-  add(element) {
-    var node = new Node(element);
-    if (this.head === null) {
-      this.head = node;
-    } else {
-      currentNode = this.head;
-      while (currentNode.next) {
-        currentNode = currentNode.next;
-      }
-      currentNode.next = node;
-    }
-    this.length++;
-  }
-}
-
-var X = new LinkedList();
-X.add("H");
-X.add("E");
-X.add("L");
-X.add("L");
-console.log(X.getLinkedList());
+depthFirstSearch(graph, "a"); //abdfce
