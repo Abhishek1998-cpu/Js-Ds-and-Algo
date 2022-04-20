@@ -20,7 +20,7 @@
 // d ---------> f
 
 // For Breadth First Traversal we need to use Stack and Iteration
-// Using Recursion for Breadth First Traversal is not good
+// Using Recursion for Breadth First Traversal is not good and not used
 
 const breadthFirstPrint = (graph, source) => {
   const queue = [source];
