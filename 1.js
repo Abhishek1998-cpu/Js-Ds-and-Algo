@@ -1,32 +1,18 @@
-// console.log("Hello World");
+// Graph Data Structure
+// Graph = Node +  Edges
+// Depth First Traversal - Stack
+// Breadth First Traversal - Queue
+// 16.37
 
-// Permutations
-// Given a set of n things there are n! permutations
-// Permutations Ques can be solved using Array
+const depthFirstSearch = (graph, source) => {};
 
-/**
- * @param {number[]} nums
- * @return {number[][]}
- */
-var permute = function (elements) {
-  if (elements.length === 0) {
-    return [[]];
-  }
-  const firstElement = elements[0];
-  const rest = elements.slice(1);
-  const permsWithoutFirst = permute(rest);
-  const allPermutations = [];
-  permsWithoutFirst.forEach((perm) => {
-    for (let i = 0; i <= perm.length; i++) {
-      const permWithFirst = [
-        ...perm.slice(0, i),
-        firstElement,
-        ...perm.slice(i),
-      ];
-      allPermutations.push(permWithFirst);
-    }
-  });
-  return allPermutations;
+const graph = {
+  a: ["c", "b"],
+  b: ["d"],
+  c: ["e"],
+  d: ["f"],
+  e: [],
+  f: [],
 };
 
-console.log(permute([1, 2, 3]));
+depthFirstSearch(graph, "a"); //abdfce
