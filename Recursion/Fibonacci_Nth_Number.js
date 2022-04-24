@@ -25,3 +25,17 @@ console.log(Fib(50));
 
 // 5th term = 5
 // 1 1 2 3 5 8
+
+// Fibonacci using Iteration 
+
+// function Fib(num){
+//   var x = 0
+//   var y = 1
+//   var z = 0
+//   for(let i = 0; i < num; i++){
+// z = x + y 
+// x = y
+// y = z
+//   }
+//   return x
+// }
