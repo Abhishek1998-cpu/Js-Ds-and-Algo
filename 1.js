@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 // Graph Data Structure
 // Graph = Node +  Edges
 // Depth First Traversal - Stack
@@ -19,28 +20,26 @@ const graph = {
 depthFirstSearch(graph, "a"); //abdfce
 =======
 // Map Filter Reduce example
+=======
+// Shallow Copy vs Deep Copy
+>>>>>>> 1e36778384a8c0b79d56b9d085a034298cfaddec
 
-// Map - Whenever we want to transform all the elements of an array
+// Example of a Shallow Copy
+// Name of Developer 1 is also changed when we change the Name of Developer 2
+// let developer1 = { name: "Abhishek" };
+// let developer2 = developer1;
+// developer2.name = "Varun";
 
-// const arr = [1, 2, 3, 4, 5];
-// const arrMulBy2 = arr.map((element, index) => {
-//   return element * 2;
-// });
-// const arrBinary = arr.map((element, index) => {
-//   return element.toString(2);
-// });
-// console.log(arr);
-// console.log(arrMulBy2);
-// console.log(arrBinary);
+// console.log(developer1);
+// console.log(developer2);
 
-// Filter - Whenever we want to filter the values inside an array
-// const arr = [1, 2, 3, 4, 5];
-// const arrLessthan3 = arr.filter((element, index) => {
-//   return element <= 3;
-// });
-// console.log(arr);
-// console.log(arrLessthan3);
+// Example of a Deep Copy
+// Name of Developer 1 does not changes when we change the Name of Developer 2
+let developer1 = { name: "Abhishek" };
+let developer2 = JSON.parse(JSON.stringify(developer1));
+developer2.name = "Varun";
 
+<<<<<<< HEAD
 // Reduce - It does not reduce anything, We use it when we need to take all the elements of an array and come up with a single value out of them
 const arr = [1, 2, 3, 4, 5];
 
@@ -86,3 +85,7 @@ const arr2GreatestNum = arr.reduce((acc, curr) => {
 console.log(findMax(arr));
 console.log(arr2GreatestNum);
 >>>>>>> 3cb1adbdda712a2ef96f78bae10f7c795ffdb70b
+=======
+console.log(developer1);
+console.log(developer2);
+>>>>>>> 1e36778384a8c0b79d56b9d085a034298cfaddec

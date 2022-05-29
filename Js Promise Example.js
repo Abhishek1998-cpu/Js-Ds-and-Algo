@@ -11,7 +11,7 @@ let myPromise = new Promise(function (Resolve, Reject) {
     } else {
       Reject("Error");
     }
-  }, 10000);
+  }, 1000);
 });
 
 // myPromise.then(

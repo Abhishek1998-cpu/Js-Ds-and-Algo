@@ -2,11 +2,13 @@
 
 function makeRequest(location) {
   return new Promise((resolve, reject) => {
-    if (location === "Google") {
-      resolve("Google say Yes");
-    } else {
-      reject("Google say No");
-    }
+    setTimeout(() => {
+      if (location === "Google") {
+        resolve("Google say Yes");
+      } else {
+        reject("Google say No");
+      }
+    }, 1000);
   });
 }
 
