@@ -20,29 +20,30 @@
 
 // Square Pattern
 const printSq = (num) => {
-  let string = "";
+  let string = ""
   for (let i = 0; i < num; i++) {
     for (let j = 0; j < num; j++) {
-      string = string + "* ";
+      string = string + "* "
     }
-    string = string + "\n";
+    string = string + "\n"
   }
-  return string;
-};
+  return string
+}
 
 // console.log(printSq(5));
 
 // Increasing Traingle pattern
 
 const printTr = (num) => {
-  let string = "";
+  let string = ""
   for (let i = 0; i < num; i++) {
     for (let j = num; j > i + 1; j++) {
-      string = string + "* ";
+      string = string + "* "
     }
-    string = string + "\n";
+    string = string + "\n"
   }
-  return string;
-};
+  return string
+}
 
-console.log(printTr(5));
+console.log(printTr(5))
+console.log("Patterns are easy")
