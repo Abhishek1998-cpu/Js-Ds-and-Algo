@@ -27,3 +27,5 @@ function fetchData(data) {
     console.log(error)
   }
 })()
+
+// Minor changes for checking
