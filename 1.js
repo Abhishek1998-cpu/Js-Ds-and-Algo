@@ -1,29 +1,23 @@
-function fetchData(data) {
-  return new Promise((resolve, reject) => {
-    if (data == "Available") {
-      resolve("Data is Available")
-    } else {
-      reject("Data is Not Available")
-    }
+// Example of Promises
+
+// const res = () => {
+//     return new Promise((resolve, reject)=>{
+//  fetch("https://dummyjson.com/products").then(res => {resolve(res)}).catch((err) => {
+//      reject(err)
+//  })
+// }
+
+import fetch from "node-fetch";
+const res = new Promise(function (Resolve, Reject) {
+  fetch("https://dummyjson.com/products")
+    .then((res) => Resolve(res))
+    .catch((err) => Reject(err));
+});
+
+res
+  .then((res) => {
+    console.log("Data = " + res);
   })
-}
-
-// Promises
-// fetchData("Not Available")
-//   .then((res) => {
-//     console.log(res)
-//   })
-//   .catch((err) => {
-//     console.log(err)
-//   })
-
-// Async Await
-
-;(async function getData() {
-  const res = await fetchData("Available")
-  try {
-    console.log(res)
-  } catch (error) {
-    console.log(error)
-  }
-})()
+  .catch((err) => {
+    console.log("Err = " + err);
+  });
