@@ -2,7 +2,7 @@
 // Js - Object inherit Object 
 
 // Inheritance – It is a concept in which some properties and methods of an Object are being used by another Object.
-
+// super keyword - It is used to refer to the immediate parent class’s instance variable. 
 class person{
     constructor(name, gender){
         this.name = name
