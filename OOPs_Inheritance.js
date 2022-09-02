@@ -19,3 +19,30 @@ class personDetails extends person{
 
 const p2 = new personDetails("Abhishek","Male", "Engineer")
 console.log(p2)
+
+
+
+
+// Inheritance Implementation Example 2 
+
+// class person{
+//     constructor(name){
+//         this.name = name
+//     }
+//     toString(){
+//         return `Name of the person is ${this.name}`
+//     }
+// }
+
+// class personId extends person{
+//     constructor(name, id){
+//         super(name)
+//         this.id = id
+//     }
+//     toString(){
+//         return `${super.toString()}, Id of the person is ${this.id}`
+//     }
+// }
+
+// const p1 = new personId("Rahul", 23)
+// console.log(p1.toString())
