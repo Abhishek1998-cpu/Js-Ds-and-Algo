@@ -19,13 +19,25 @@ function fetchData(data) {
 
 // Async Await
 
-;(async function getData() {
+// ;(async function getData() {
+//   const res = await fetchData("Available")
+//   try {
+//     console.log(res)
+//   } catch (error) {
+//     console.log(error)
+//   }
+// })()
+
+async function getData() {
   const res = await fetchData("Available")
   try {
     console.log(res)
   } catch (error) {
     console.log(error)
   }
-})()
+}
+
+const getResult = getData()
+console.log(getResult)
 
 // Minor changes for checking

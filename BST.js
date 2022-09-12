@@ -5,7 +5,7 @@
 // 2. FindMin
 // 3. FindMax
 // 4. Find
-// 5. isPresent
+// 5. isPresent - return Boolean (true or false)
 // 6. remove
 // 7. isBalanced
 // 8. inOrder
@@ -23,240 +23,256 @@
 
 class Node {
   constructor(data, left = null, right = null) {
-    this.data = data;
-    this.left = left;
-    this.right = right;
+    this.data = data
+    this.left = left
+    this.right = right
   }
 }
 
 class BST {
   constructor() {
-    this.root = null;
+    this.root = null
   }
 
   add(data) {
-    const node = this.root;
+    const node = this.root
     if (node === null) {
-      this.root = new Node(data);
-      return;
+      this.root = new Node(data)
+      return
     } else {
       // searchTree is a recursive function
       const searchTree = function (node) {
         if (data < node.data) {
           if (node.left === null) {
-            node.left = new Node(data);
-            return;
+            node.left = new Node(data)
+            return
           } else if (node.left !== null) {
-            return searchTree(node.left);
+            return searchTree(node.left)
           }
         } else if (data > node.data) {
           if (node.right === null) {
-            node.right = new Node(data);
-            return;
+            node.right = new Node(data)
+            return
           } else if (node.right !== null) {
-            return searchTree(node.right);
+            return searchTree(node.right)
           }
         } else {
-          return null;
+          return null
         }
-      };
-      return searchTree(node);
+      }
+      return searchTree(node)
     }
   }
 
   findMin() {
-    let current = this.root;
+    let current = this.root
     while (current.left !== null) {
-      current = current.left;
+      current = current.left
     }
-    return current.data;
+    return current.data
   }
 
   findMax() {
-    let current = this.root;
+    let current = this.root
     while (current.right !== null) {
-      current = current.right;
+      current = current.right
     }
-    return current.data;
+    return current.data
   }
 
   find(data) {
-    let current = this.root;
+    let current = this.root
     while (current.data !== data) {
       if (data < current.data) {
-        current = current.left;
+        current = current.left
       } else {
-        current = current.right;
+        current = current.right
       }
       if (current === null) {
-        return null;
+        return null
       }
     }
-    return current;
+    return current
   }
 
   isPresent(data) {
-    let current = this.root;
+    let current = this.root
     while (current) {
       if (data === current.data) {
-        return true;
+        return true
       }
       if (data < current.data) {
-        current = current.left;
+        current = current.left
       } else {
-        current = current.right;
+        current = current.right
       }
     }
-    return false;
+    return false
   }
 
   getTree() {
-    return JSON.stringify(this.root, null, 2);
+    return JSON.stringify(this.root, null, 2)
   }
 
   remove(data) {
-    console.log("New 1 = " + data);
-    console.log("New 1 = " + JSON.stringify(this.root));
+    console.log("New 1 = " + data)
+    console.log("New 1 = " + JSON.stringify(this.root))
     const removeNode = function (node, data) {
       // If node == null then there is an empty tree
       if (node == null) {
-        return null;
+        return null
       }
       if (data == node.data) {
         //   node has no children
         if (node.left == null && node.right == null) {
-          return null;
+          return null
         }
         // node has no left child
         if (node.left == null) {
-          return node.right;
+          return node.right
         }
         // node has no right child
         if (node.right == null) {
-          return node.left;
+          return node.left
         }
         // node has two children (Only Complex Case in Removing a Node)
-        var tempNode = node.right;
+        var tempNode = node.right
         while (tempNode.left !== null) {
-          tempNode = tempNode.left;
+          tempNode = tempNode.left
         }
-        node.data = tempNode.data;
-        node.right = removeNode(node.right, tempNode.data);
-        return node;
+        node.data = tempNode.data
+        node.right = removeNode(node.right, tempNode.data)
+        return node
       } else if (data < node.data) {
-        node.left = removeNode(node.left, data);
-        return node;
+        node.left = removeNode(node.left, data)
+        return node
       } else {
-        node.right = removeNode(node.right, data);
-        return node;
+        node.right = removeNode(node.right, data)
+        return node
       }
-    };
-    this.root = removeNode(this.root, data);
+    }
+    this.root = removeNode(this.root, data)
   }
 
   isBalanced() {
-    return this.finMinHeight() >= this.findMaxHeight() - 1;
+    return this.finMinHeight() >= this.findMaxHeight() - 1
   }
 
   findMinHeight(node = this.root) {
     if (node == null) {
-      return -1;
+      return -1
     }
-    let left = this.findMinHeight(node.left);
-    let right = this.findMinHeight(node.right);
+    let left = this.findMinHeight(node.left)
+    let right = this.findMinHeight(node.right)
     if (left < right) {
-      return left + 1;
+      return left + 1
     } else {
-      return right + 1;
+      return right + 1
     }
   }
 
   findMaxHeight(node = this.root) {
     if (node == null) {
-      return -1;
+      return -1
     }
-    let left = this.findMaxHeight(node.left);
-    let right = this.findMaxHeight(node.right);
+    let left = this.findMaxHeight(node.left)
+    let right = this.findMaxHeight(node.right)
     if (left > right) {
-      return left + 1;
+      return left + 1
     } else {
-      return right + 1;
+      return right + 1
     }
   }
 
   inOrder() {
     if (this.root == null) {
-      return null;
+      return null
     } else {
-      var result = new Array();
+      var result = new Array()
       function traverseInOrder(node) {
         // Old Method - Not Working
         // node.left && traverseInOrder(node.left);
         // result.push(node.data);
         // New Method Working
-        if (node == null) return;
-        traverseInOrder(node.left);
-        result.push(node.data);
-        traverseInOrder(node.right);
+        if (node == null) return
+        traverseInOrder(node.left)
+        result.push(node.data)
+        traverseInOrder(node.right)
       }
-      traverseInOrder(this.root);
-      return result;
+      traverseInOrder(this.root)
+      return result
+    }
+  }
+
+  inOrderTree() {
+    if (this.root == null) {
+      return null
+    } else {
+      const newBST = new BST()
+      function traverseInOrder(node) {
+        if (node == null) return
+        traverseInOrder(node.left)
+        newBST.add(node.data)
+        traverseInOrder(node.right)
+      }
+      traverseInOrder(this.root)
+      return newBST
     }
   }
 
   preOrder() {
     if (this.root == null) {
-      return null;
+      return null
     } else {
-      var result = new Array();
+      var result = new Array()
       function traversePreOrder(node) {
-        result.push(node.data);
-        node.left && traversePreOrder(node.left);
-        node.right && traversePreOrder(node.right);
+        result.push(node.data)
+        node.left && traversePreOrder(node.left)
+        node.right && traversePreOrder(node.right)
       }
-      traversePreOrder(this.root);
-      return result;
+      traversePreOrder(this.root)
+      return result
     }
   }
 
   postOrder() {
     if (this.root == null) {
-      return null;
+      return null
     } else {
-      var result = new Array();
+      var result = new Array()
       function traversePostOrder(node) {
-        node.left && traversePostOrder(node.left);
-        node.right && traversePostOrder(node.right);
-        result.push(node.data);
+        node.left && traversePostOrder(node.left)
+        node.right && traversePostOrder(node.right)
+        result.push(node.data)
       }
-      traversePostOrder(this.root);
-      return result;
+      traversePostOrder(this.root)
+      return result
     }
   }
 
   levelOrder() {
-    let result = [];
-    let Q = [];
+    let result = []
+    let Q = []
     if (this.root != null) {
-      Q.push(this.root);
+      Q.push(this.root)
       while (Q.length > 0) {
-        let node = Q.shift();
-        result.push(node.data);
+        let node = Q.shift()
+        result.push(node.data)
         if (node.left != null) {
-          Q.push(node.left);
+          Q.push(node.left)
         }
         if (node.right != null) {
-          Q.push(node.right);
+          Q.push(node.right)
         }
       }
-      return result;
+      return result
     } else {
-      return null;
+      return null
     }
   }
 }
 
-const bst = new BST();
+const bst = new BST()
 // bst.add(1);
 // bst.add(2);
 // bst.add(3);
@@ -270,11 +286,24 @@ const bst = new BST();
 // console.log(bst.isPresent(10));
 // console.log(bst.find(5));
 
-bst.add(100);
-bst.add(200);
-bst.add(90);
-bst.add(115);
-console.log(bst.getTree());
-console.log(bst.inOrder());
+// bst.add(100)
+// bst.add(200)
+// bst.add(90)
+// bst.add(115)
+// console.log(bst.getTree())
+// console.log(bst.inOrder())
+
+bst.add(5)
+bst.add(3)
+bst.add(6)
+bst.add(2)
+bst.add(4)
+bst.add(8)
+bst.add(1)
+bst.add(7)
+bst.add(9)
+
+// console.log(bst.getTree())
+console.log(JSON.stringify(bst.inOrderTree(), null, 2))
 
 // 35.55
