@@ -1,124 +1,236 @@
-// Call, Apply, Bind example - Important
+// Implement Memoization
+// Deep flatten an array in Js - all Methods
+// Deep flatten of an Object in Js - all Methods
+// Promise basic Implementation
+// Async Await basic Implementation
+// Promise.all Implementation
+// Call, Apply, Bind Implementation
+// Shallow Copy and Deep Copy Implementation
+// Implementation of Debouncing and Throttling
+// Implementation of Event Propagation
 
-// Call Example 
-// let userDetails = {
-//     name: "Abhishek Verma",
-//     age: 24,
-//     designation: "Software Engineer",
-//     printDetails: function(){
-//         console.log(`${this.name} is a ${this.designation}. He is of ${this.age} years old.`)
+// Memoization Implementation
+// const HashMap = new Map()
+
+// const AddTwoNumber = (num1, num2)=>{
+//     console.log(HashMap)
+//     if(HashMap.has([num1, num2].toString())){
+//         console.log("Memoized Value")
+//         return HashMap.get([num1, num2].toString())
+//     }else{
+//         console.log("Calc Value")
+//         HashMap.set([num1, num2].toString(), num1 + num2)
+//         return num1 + num2
 //     }
 // }
 
-// let userDetails2 = {
-//     name: "Sample User",
-//     age: 20,
-//     designation: "Engineer"
+// console.log(AddTwoNumber(10,20))
+// console.log(AddTwoNumber(10,20))
+
+// Flattening of an Array
+
+// const New = [[1,2],[3,4],[[[5,6],[7,8]],[9,10]],[11,12]]
+
+// 1st
+// console.log(New.flat())
+
+// 2nd
+// console.log([].concat(...New))
+
+// 3th
+// console.log([].concat.apply([], New))
+
+// 4th
+// const flattenArray = New.reduce((acc, curVal) => {
+//     return acc.concat(curVal)
+// })
+// console.log(flattenArray)
+
+// Deep Flattening of an Array
+
+// const New = [[1,2],[3,4],[[[5,6],[7,8]],[9,10]],[11,12]]
+
+// 1st
+// console.log(New.flat(Infinity))
+
+// 2nd Method
+
+// const DeepFlattenArray = (arr) => {
+//     var newArr = []
+//     for(let i = 0; i < arr.length; i++){
+//         if(Array.isArray(arr[i])){
+//             newArr = newArr.concat(DeepFlattenArray(arr[i]))
+//         }else{
+//             newArr.push(arr[i])
+//         }
+//     }
+//     return newArr
 // }
 
-// Call is an example of function borrowing 
-// userDetails.printDetails.call(userDetails2)
-// console.log("Hello World")
+// console.log(DeepFlattenArray(New))
 
-// Call Example - 2 - Using generic function or component
+// Flattening of an Object to Single level / Deep Flattening of an Object
 
-// There is one generic function / Common function 
-// We need to use this function with any Object 
-// So we can use call 
-
-// let userDetails = {
-//     name: "Abhishek Verma",
-//     age: 24,
-//     designation: "Software Engineer",
-
+// const obj = {
+//     name: "Abhishek",
+//     profession: {
+//         title: "Engineer",
+//         industry: "Software"
+//     },
+//     address: {
+//         state: {
+//             name: "Uttar Pradesh",
+//             city: {
+//                 name: "Gorakhpur"
+//             }
+//         }
+//     }
 // }
 
-// let userDetails2 = {
-//     name: "Sample User",
-//     age: 20,
-//     designation: "Engineer"
+// const DeepFlattenObject = (obj) => {
+//     let res = {}
+//     for(const item in obj){
+//         if((typeof obj[item] === "object") && !Array.isArray(obj[item])){
+//             const temp = DeepFlattenObject(obj[item])
+//             for(const tempItem in temp){
+//                 res[`${item}` + "." + `${tempItem}`] = temp[tempItem]
+//             }
+//         }else{
+//             res[item] = obj[item]
+//         }
+//     }
+//     return res
 // }
 
-// function printDetails(){
-//     console.log(`${this.name} is a ${this.designation}. He is of ${this.age} years old.`)
+// console.log(DeepFlattenObject(obj))
+
+// let fetchData = new Promise((Resolve, Reject) => {
+//   let data = 100;
+//   setTimeout(() => {
+//     if (data === 10) {
+//       Resolve("Data fetched Successfully");
+//     } else {
+//       Reject("Error in fetching the Data");
+//     }
+//   }, 3000);
+// });
+
+// fetchData.then((res) => console.log(res)).catch((err) => console.log(err));
+
+// let fetchData = () => {
+//   return new Promise((Resolve, Reject) => {
+//     let data = 100;
+//     setTimeout(() => {
+//       if (data === 100) {
+//         Resolve("Data fetched Successfully");
+//       } else {
+//         Reject("Error in fetching the Data");
+//       }
+//     }, 3000);
+//   });
+// };
+
+// async function getData() {
+//   try {
+//     const res = await fetchData();
+//     console.log(res)
+//     return res;
+//   } catch (error) {
+//     console.log(error);
+//   }
 // }
 
-// printDetails.call(userDetails)
-// printDetails.call(userDetails2)
+// getData();
 
-// Call example - 3 - Passing an argument
+// Promise.all Implementation
 
-// let userDetails = {
-//     name: "Abhishek Verma",
-//     age: 24,
-//     designation: "Software Engineer",
+// let p1 = new Promise((Resolve, Reject) => {
+//   let data = 100;
+//   setTimeout(() => {
+//     if (data === 100) {
+//       Resolve("Data fetched Successfully");
+//     } else {
+//       Reject("Error in fetching the Data");
+//     }
+//   }, 3000);
+// });
 
+// let p2 = new Promise((Resolve, Reject) => {
+//   let data = 100;
+//   setTimeout(() => {
+//     if (data === 100) {
+//       Resolve("Data fetched Successfully");
+//     } else {
+//       Reject("Error in fetching the Data");
+//     }
+//   }, 3000);
+// });
+
+// let p3 = new Promise((Resolve, Reject) => {
+//   let data = 100;
+//   setTimeout(() => {
+//     if (data === 1001) {
+//       Resolve("Data fetched Successfully");
+//     } else {
+//       Reject("Error in fetching the Data");
+//     }
+//   }, 3000);
+// });
+
+
+// Promise.all([p1,p2,p3]).then((res) => {
+//     console.log(res)
+// }).catch((err) => {
+//     console.log(err)
+// })
+
+// Call, Apply, Bind  Implementation
+
+// const obj = {
+//     name: "Abhishek",
+//     printName: function(city,  state) {
+//         console.log(`The name of the person is ${this.name}. He lives in ${city}, ${state}`)
+//     }
 // }
 
-// let userDetails2 = {
-//     name: "Sample User",
-//     age: 20,
-//     designation: "Engineer"
+// const obj2 = {
+//     name: "Rahul"
 // }
 
-// function printDetails(city, state){
-//     console.log(`${this.name} is a ${this.designation}. He is of ${this.age} years olds, he lives in ${city}, ${state}.`)
-// }
+// obj.printName.call(obj2, "Gorakhpur", "Uttar Pradesh")
+// obj.printName.apply(obj2, ["Gorakhpur", "Uttar Pradesh"])
 
-// printDetails.call(userDetails)
-// printDetails.call(userDetails, "Lucknow", "Uttar Pradesh")
-// printDetails.call(userDetails2, "Hyderabad", "Telangana")
+// const callFunction = obj.printName.bind(obj2, "Gorakhpur", "Uttar Pradesh")
+// callFunction()
 
-// Apply Example 
+// Shallow Copy and Deep Copy Implementation 
 
-// Only difference between call and apply - 
-// call can multiple arguments one by one seperated by comma 
-// apply can take multiple arguments all in one array 
-
-// let userDetails = {
-//     name: "Abhishek Verma",
-//     age: 24,
-//     designation: "Software Engineer",
-
-// }
-
-// let userDetails2 = {
-//     name: "Sample User",
-//     age: 20,
-//     designation: "Engineer"
-// }
-
-// function printDetails(city, state){
-//     console.log(`${this.name} is a ${this.designation}. He is of ${this.age} years olds, he lives in ${city}, ${state}.`)
-// }
-
-// printDetails.apply(userDetails)
-// printDetails.apply(userDetails, ["Lucknow", "Uttar Pradesh"])
-// printDetails.apply(userDetails2, ["Hyderabad", "Telangana"])
-
-// Bind Example 
-// Instead of calling function on the stop you can save it to a variable and then call it later 
-
-let userDetails = {
-    name: "Abhishek Verma",
-    age: 24,
-    designation: "Software Engineer",
-
+const obj = {
+    name: "Abhishek"
 }
 
-let userDetails2 = {
-    name: "Sample User",
-    age: 20,
-    designation: "Engineer"
-}
+// Shallow Copy Creation 
+// const obj2 = obj 
+// obj2.name = "Verma"
+// console.log(obj)
+// console.log(obj2)
 
-function printDetails(city, state){
-    console.log(`${this.name} is a ${this.designation}. He is of ${this.age} years olds, he lives in ${city}, ${state}.`)
-}
+// Deep Copy Creation 
 
-var f1 = printDetails.bind(userDetails)
-var f2 = printDetails.bind(userDetails, "Lucknow", "Uttar Pradesh")
-var f3 = printDetails.bind(userDetails2, "Hyderabad", "Telangana")
-f1()
-f2()
-f3()
+// 1st 
+// const obj2 = {...obj}
+// obj2.name = "Verma"
+// console.log(obj)
+// console.log(obj2)
+
+// 2nd 
+// const obj2 = JSON.parse(JSON.stringify(obj))
+// obj2.name = "Verma"
+// console.log(obj)
+// console.log(obj2)
+
+// 3rd 
+// const obj2 = Object.create(obj, {})
+// obj2.name = "Verma"
+// console.log(obj)
+// console.log(obj2)
