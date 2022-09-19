@@ -5,8 +5,8 @@
 
 // Scenario 2: Type Coersion String is converted to number in case of - and concaternation occur in case of +
 
-// console.log("1" - -"1")
-// console.log("1" + -"1")
+// console.log("1" - -"1") // 1 - (-1) = 2
+// console.log("1" + -"1") // "1" + "-1" = 1-1
 
 // Scenario 3: Closure
 // ;(function () {

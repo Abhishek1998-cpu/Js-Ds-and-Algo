@@ -1,6 +1,6 @@
 // Scenario 1 - What is Array Reduce Method
 
-// const nums = [1, 2, 3, 4, 5]
+const nums = [1, 2, 3, 4, 5]
 
 // // acc - Accumulator
 // // curr - Current

@@ -29,7 +29,7 @@ let p2 = new Promise((res, rej) => {
 
 let p3 = new Promise((res, rej) => {
   const a = 80;
-  if (a === 80) {
+  if (a === 800) {
     res("a is equal to 80");
   } else {
     rej("a is not equal to 80");
@@ -45,7 +45,8 @@ let p4 = new Promise((res, rej) => {
   }
 });
 
-Promise.all([p2, p3, p4])
+// Promise.all([p2, p3, p4])
+Promise.allSettled([p2, p3, p4])
   .then((res) => {
     console.log(res);
   })
