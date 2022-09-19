@@ -1,15 +1,3 @@
-<<<<<<< HEAD
-function add(a) {
-  return function (b) {
-    if (b) {
-      return add(a + b)
-    }
-    return a
-  }
-}
-
-console.log(add(10)(20)())
-=======
 // Implement Memoization
 // Deep flatten an array in Js - all Methods
 // Deep flatten of an Object in Js - all Methods
@@ -246,4 +234,3 @@ const obj = {
 // obj2.name = "Verma"
 // console.log(obj)
 // console.log(obj2)
->>>>>>> ce43a6c7f8d640098d5b1443bf1193d81ff11c12
