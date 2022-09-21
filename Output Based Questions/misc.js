@@ -110,8 +110,8 @@
 
 // Scenario 14: The last element from the second array is used as the index to get the value from first array like arrTest[3].
 
-const arrTest = [10, 20, 30, 40, 50][(1, 3)]
-console.log(arrTest) // 40
+// const arrTest = [10, 20, 30, 40, 50][1, 3]
+// console.log(arrTest) // 40
 
 // Scenario 15: + operator
 

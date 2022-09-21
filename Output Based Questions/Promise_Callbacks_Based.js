@@ -41,13 +41,15 @@
 
 // Scenario 4 - Promise Combinator's - 4 types -
 
-// Promise.all, Promise.race, Promise.allSettled, Promise.race - have same syntax
+// Promise.all, Promise.race, Promise.allSettled, Promise.any - have same syntax
 
 // 1. Promise.all
 
 // 2. Promise.race - We get the result of that promises which is resolve or rejected first
 
 // 3. Promise.allSettled - Same as promise.all but it will return the res even if a promise get rejected
+
+// 4. Promise.any - It will be returning the first ever resolved promise, it will be throwing error only if all the promise get rejected
 
 // let p2 = new Promise((res, rej) => {
 //     const a = 90;
