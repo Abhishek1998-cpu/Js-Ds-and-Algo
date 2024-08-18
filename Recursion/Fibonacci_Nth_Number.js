@@ -1,5 +1,6 @@
 // Fibonacci Using Recursion
 // Print the nth term of the Fibonacci Series
+// This is also an example of Dynamic Programming 
 
 const Fib = (n) => {
   if (n == 0) {

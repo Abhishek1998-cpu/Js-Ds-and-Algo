@@ -1,0 +1,7 @@
+.square {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 0.5px solid black;
+  width: 50%;
+}

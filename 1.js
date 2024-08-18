@@ -1,31 +1,36 @@
-// Using Recursion
-// Time complexity - Exponential (Very bad) as every function is calling two other function 
-// Space Complexity - O(n) Extra space 
+// Linear Search
 
-// const getNthFibonacciTerm = (n) => {
-//     if(n <= 1){
-//         return n
+// const linearSearch = (arr, target) => {
+//   for(let i = 0; i < arr?.length; i++){
+//     if(arr[i] === target){
+//         return i
 //     }
-//     return getNthFibonacciTerm(n-1) + getNthFibonacciTerm(n -2)
-// }
+//   }
+// };
 
-// const res = getNthFibonacciTerm(50)
-// console.log(res)
+// console.log(linearSearch([2, 5, 4, 3, 6], 6));
 
-// Using Dynamic Programming 
-// Time Complexity - O(n) - best one
-// Space Complexity - O(n) Auxilary Space 
-
-function getNthFibonacciTerm(n) {
-  let f = new Array(n + 2);
-  let i;
-  f[0] = 0;
-  f[1] = 1;
-  for (i = 2; i <= n; i++) {
-    f[i] = f[i - 1] + f[i - 2];
+const binarySearch = (arr, target) => {
+  const Arr = arr?.sort((a, b) => a - b);
+  if (Arr?.length == 0) {
+    return -1;
   }
-  return f[n];
-}
+  let leftIndex = 0;
+  let rightIndex = Arr?.length - 1;
+  while (leftIndex <= rightIndex) {
+    let middleIndex = Math.floor((leftIndex + rightIndex) / 2);
+    // console.log(middleIndex);
+    if (Arr[middleIndex] === target) {
+      return middleIndex;
+    }
+    if (Arr[middleIndex] > target) {
+      rightIndex = middleIndex - 1;
+    }
+    if (Arr[middleIndex] < target) {
+      leftIndex = middleIndex + 1;
+    }
+  }
+  return -1;
+};
 
-const res = getNthFibonacciTerm(100);
-console.log(res);
+console.log(binarySearch([2, 5, 4, 3, 6], 6));

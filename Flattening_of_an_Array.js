@@ -7,6 +7,11 @@ const SampleArray = [
   ],
 ];
 
+// Output -> [
+//   1, 2, 3, 4,
+//   5, 6, 7, 8
+// ]
+
 // Flattening of an Array
 
 // Method 1: Using flat method
@@ -30,7 +35,7 @@ const SampleArray = [
 // Deep Flattening of an Array
 
 // Method 1: 
-// Using flatten method of underscores library
+// Using flatten method of underscores (lodash) library
 
 // Method 2: 
 // Using flattenDeep method of lodash library

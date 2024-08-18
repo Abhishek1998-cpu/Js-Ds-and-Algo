@@ -28,16 +28,16 @@
 
 // Scenario 2 - Variable shadowing
 
-// function test() {
-//   let a = "Hello"
-//   if (true) {
-//     let a = "Hi"
-//     console.log(a)
-//   }
-//   console.log(a)
-// }
+function test() {
+  let a = "Hello"
+  if (true) {
+    let a = "Hi"
+    console.log(a)
+  }
+  console.log(a)
+}
 
-// test()
+test()
 
 // Output - Hi Hello
 

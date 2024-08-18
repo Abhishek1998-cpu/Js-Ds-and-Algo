@@ -28,11 +28,17 @@ const nums = [1, 2, 3, 4, 5]
 //   let newArr = []
 //   for (let i = 0; i < this.length; i++) {
 //     if (cb(this[i], i, this)) {
-//       newArr.push(cb(this[i], i, this))
+//       newArr.push(this[i])
 //     }
 //   }
 //   return newArr
 // }
+
+// const newNums = nums?.myFilter((ele, index, arr) => {
+//     return ele === 3
+// })
+
+// console.log(newNums)
 
 // Scenario 4 - Polyfill for Reduce()
 

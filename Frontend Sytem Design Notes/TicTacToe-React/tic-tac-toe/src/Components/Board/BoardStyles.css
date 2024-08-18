@@ -1,0 +1,9 @@
+.board-container {
+  margin: 24px;
+}
+
+.board-row {
+  height: 5rem;
+  display: flex;
+  justify-content: space-evenly;
+}

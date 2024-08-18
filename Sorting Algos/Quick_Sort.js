@@ -1,4 +1,4 @@
-// Implementation of Quick Sort in Js
+// Implementation of Quick Sort / Sorting in Js
 
 function swap(arr, i, j) {
   let temp = arr[i];

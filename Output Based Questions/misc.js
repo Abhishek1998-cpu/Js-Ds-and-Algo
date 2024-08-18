@@ -1,6 +1,7 @@
-// Scenario 1: Equalto operator behaves differently with boolean
-
+// Scenario 1: Equal to operator behaves differently with boolean
+// == operator convert's the operand into a common type, "0" and 0 are type coerced to false and hence result is true
 // console.log(false == "0") // true
+// console.log(false == 0) // true
 // console.log(true == "1") // true
 
 // Scenario 2: Type Coersion String is converted to number in case of - and concaternation occur in case of +
@@ -16,7 +17,7 @@
 // console.log(lang2) // lang2 is not defined
 
 // Scenario 4: call and this
-// ;(function () {
+// (function () {
 //   console.log(typeof this)
 // }.call(10))
 
@@ -52,22 +53,22 @@
 // let b = new Number(3)
 // let c = 3
 // console.log(a == b)
-// console.log(a === b)
-// console.log(b === c)
+// console.log(a === b) // b is object data type
+// console.log(b === c) // b is object data type
 
 // Scenario 9: Passed by reference -> When testing equality, primitives are compared by their value, while objects are compared by their reference.
 
 // function checkAge(data) {
 //   if (data === { age: 18 }) {
-//     console.log("You are an adult!")
+//     console.log("You are an adult!");
 //   } else if (data == { age: 18 }) {
-//     console.log("You are still an adult.")
+//     console.log("You are still an adult.");
 //   } else {
-//     console.log(`Hmm.. You don't have an age I guess`)
+//     console.log(`Hmm.. You don't have an age I guess`); // Correct
 //   }
 // }
 
-// checkAge({ age: 20 })
+// checkAge({ age: 20 });
 
 // Scenario 10: All object keys (excluding Symbols) are strings under the hood.
 
@@ -89,7 +90,6 @@
 // a[c] = 456
 
 // console.log(a)
-// console.log(a[b])
 
 // Scenario 12: Empty Items in an Array - Empty slots have the value of undefined
 
@@ -110,8 +110,8 @@
 
 // Scenario 14: The last element from the second array is used as the index to get the value from first array like arrTest[3].
 
-// const arrTest = [10, 20, 30, 40, 50][1, 3]
-// console.log(arrTest) // 40
+const arrTest = [10, 20, 30, 40, 50][1, 3]
+console.log(arrTest) // 40
 
 // Scenario 15: + operator
 
@@ -121,10 +121,11 @@
 // console.log([1, 2, 3] + [1, 3, 4])
 
 // Scenario 16: NaN is a Unique value
+// Note - Object.is is the static method which tell two values are same or not
 
-// const ans1 = NaN === NaN
-// const ans2 = Object.is(NaN, NaN)
-// console.log(ans1, ans2)
+// const ans1 = NaN === NaN;
+// const ans2 = Object.is(NaN, NaN);
+// console.log(ans1, ans2);
 
 // Scenario 17: increment and global scope
 
